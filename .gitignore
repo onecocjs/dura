@@ -104,3 +104,4 @@ dist
 .tern-port
 packages/**/cjs
 packages/**/esm
+packages/**/es
