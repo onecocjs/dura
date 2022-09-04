@@ -4,8 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "father build",
+    "build:no-clean": "father build --no-clean",
+    "dev": "father dev"
   },
   "author": "ityuany",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "father": "^4.0.2",
+    "redux": "^4.2.0"
+  },
+  "peerDependencies": {
+    "redux": ">=4"
+  }
 }
