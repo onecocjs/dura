@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Api } from "src/typings";
+import { Api } from "../typings";
 import { shallowEqual } from "../internal/shallowEqual";
 import { useRender } from "../internal/useRender";
 

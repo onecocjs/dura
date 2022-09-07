@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Api } from "src/typings";
+import { Api } from "../typings";
 export function createUseMount<S>(api: Api<S>) {
   const { has, add, refresh } = api.storeManager;
   return function useMount() {

@@ -1,4 +1,4 @@
-import { Api } from "src/typings";
+import { Api } from "../typings";
 import { RESTORE } from "../internal/const";
 export function createRestore<S extends Object>(api: Api<S>) {
   const { reduxStore } = api.storeManager;

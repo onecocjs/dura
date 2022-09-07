@@ -1,4 +1,4 @@
-import { Api } from "src/typings";
+import { Api } from "../typings";
 
 export function createDefineFire<S extends Object>(api: Api<S>) {
   return (fn: Function) =>
