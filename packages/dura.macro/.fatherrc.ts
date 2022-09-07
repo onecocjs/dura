@@ -1,7 +1,5 @@
 import { defineConfig } from "father";
 
 export default defineConfig({
-  cjs: {
-    output: "cjs",
-  },
+  extends: "../../.fatherrc.cjs.ts",
 });
