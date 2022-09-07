@@ -2,7 +2,12 @@
   "name": "@onecocjs/dura.core",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./es/index.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js"
+    }
+  },
   "scripts": {
     "build": "father build",
     "build:no-clean": "father build --no-clean",

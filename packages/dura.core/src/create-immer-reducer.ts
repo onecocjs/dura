@@ -1,15 +1,15 @@
 import { Action, Reducer } from "redux";
-
 import { Patch, applyPatches } from "immer";
 import { __COMMIT__, RESTORE } from "./internal/const";
+import { CreateOptions } from "./typings";
 export interface AkAction extends Action<string> {
   payload?: {
     patches?: Patch[];
   };
 }
 
-export function createImmerReducer<S extends Record<string, unknown>>(
-  options: CreateAkOptions<S>
+export function createImmerReducer<S extends Object>(
+  options: CreateOptions<S>
 ): Reducer<S> {
   function immerReducer(state: S = options.initialState, action: AkAction) {
     const namespaceSplit = action?.type?.split?.("/");

@@ -2,10 +2,23 @@
   "name": "@onecocjs/dura",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./es/index.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "father build",
+    "build:no-clean": "father build --no-clean",
+    "dev": "father dev"
   },
   "author": "ityuany",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@onecocjs/dura.core": "workspace:*"
+  },
+  "devDependencies": {
+    "father": "^4.0.2"
+  }
 }
