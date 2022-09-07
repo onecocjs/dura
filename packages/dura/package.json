@@ -20,5 +20,9 @@
   },
   "devDependencies": {
     "father": "^4.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "redux": ">=4"
   }
 }
