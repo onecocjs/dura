@@ -65,7 +65,9 @@ async function getCurrentVersion() {
         const contentString = fs.readFileSync(pkg, "utf8");
         const content = JSON.parse(contentString);
         content.version = x.bump;
-        const next = prettier.format(content, { parser: "json-stringify" });
+        const next = prettier.format(JSON.stringify(content), {
+          parser: "json-stringify",
+        });
         fs.writeFileSync(next, "utf8");
       });
     });
