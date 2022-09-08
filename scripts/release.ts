@@ -68,7 +68,7 @@ async function getCurrentVersion() {
         const next = prettier.format(JSON.stringify(content), {
           parser: "json-stringify",
         });
-        fs.writeFileSync(next, "utf8");
+        fs.writeFileSync(pkg, next, "utf8");
       });
     });
 })();
