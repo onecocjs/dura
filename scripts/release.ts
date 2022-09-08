@@ -74,7 +74,7 @@ async function getCurrentVersion() {
       execSync(
         `git add . && git commit -m ${JSON.stringify(
           bump
-        )} && git tag ${bump} -m ${JSON.stringify(bump)}`
+        )} && git tag v${bump} -m ${JSON.stringify(bump)}`
       );
     });
 })();
