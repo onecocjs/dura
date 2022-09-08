@@ -4,6 +4,7 @@
     "declaration": true,
     // "target": "ES5",
     "strict": true,
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true
   }
 }
