@@ -1,5 +1,6 @@
 import path from "node:path";
 import fs from "node:fs";
+import { execSync } from "node:child_process";
 import { globbySync } from "globby";
 import { prompt } from "enquirer";
 import semver, { type ReleaseType } from "semver";
@@ -56,7 +57,7 @@ async function getCurrentVersion() {
         })),
       })
     )
-    .then((x) => {
+    .then(({ bump }) => {
       const pkgs = globbySync("packages/**/package.json", {
         ignore: ["**/node_modules/**/package.json"],
         absolute: true,
@@ -64,11 +65,12 @@ async function getCurrentVersion() {
       pkgs.forEach((pkg) => {
         const contentString = fs.readFileSync(pkg, "utf8");
         const content = JSON.parse(contentString);
-        content.version = x.bump;
+        content.version = bump;
         const next = prettier.format(JSON.stringify(content), {
           parser: "json-stringify",
         });
         fs.writeFileSync(pkg, next, "utf8");
       });
+      execSync(`git add . && git commit -m ${JSON.stringify(bump)}`);
     });
 })();
