@@ -53,7 +53,8 @@ export function configure(
       function createApi(): Api<S> {
         const getCommitType = (funcName: string) =>
           [namespace, `${__COMMIT__}${funcName || "Anonymous"}`].join("/");
-        const getState = () => reduxStore.getState()[namespace];
+        const getState = () =>
+          reduxStore.getState()[namespace] ?? createOptions.initialState;
         const setState = (fn: Function) => {
           const state = getState();
           if (state) {
