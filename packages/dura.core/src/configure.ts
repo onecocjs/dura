@@ -5,7 +5,7 @@ import {
   StoreEnhancer,
 } from "redux";
 import { createImmerReducer } from "./create-immer-reducer";
-import { __COMMIT__ } from "./internal/const";
+import { ActionTypes, __COMMIT__ } from "./internal/const";
 import { produceWithPatches } from "immer";
 import { createUseMount } from "./plugins/create-use-mount";
 import { createUseState } from "./plugins/create-use-state";
