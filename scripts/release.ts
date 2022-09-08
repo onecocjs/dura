@@ -16,6 +16,8 @@ const releaseType: ReleaseType[] = [
   "prerelease",
 ];
 
+const rootPkgPath = path.join(__dirname, "..", "package.json");
+
 const merge = (memo: any, current: any) => ({
   ...memo,
   ...current,
@@ -30,10 +32,7 @@ function bumpVersion(currentVersion: string) {
 }
 
 async function getCurrentVersion() {
-  const content = await fs.promises.readFile(
-    path.join(__dirname, "..", "package.json"),
-    "utf8"
-  );
+  const content = await fs.promises.readFile(rootPkgPath, "utf8");
 
   const { version } = JSON.parse(content);
   return version;
@@ -61,7 +60,7 @@ async function getCurrentVersion() {
       const pkgs = globbySync("packages/**/package.json", {
         ignore: ["**/node_modules/**/package.json"],
         absolute: true,
-      });
+      }).concat(rootPkgPath);
       pkgs.forEach((pkg) => {
         const contentString = fs.readFileSync(pkg, "utf8");
         const content = JSON.parse(contentString);
