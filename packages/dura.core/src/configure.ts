@@ -34,8 +34,7 @@ export function configure(
         const has = () => !!GLOBAL_REDUCERS[namespace];
         const del = () => void delete GLOBAL_REDUCERS[namespace];
         const add = () =>
-          void (GLOBAL_REDUCERS[namespace] =
-            createImmerReducer(createAkOptions));
+          void (GLOBAL_REDUCERS[namespace] = createImmerReducer(createOptions));
         const refresh = () => {
           reduxStore.replaceReducer(
             compose(reducer, combineReducers(GLOBAL_REDUCERS))
@@ -47,6 +46,7 @@ export function configure(
           del,
           add,
           refresh,
+          reduxStore,
         };
       }
 
