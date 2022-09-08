@@ -72,9 +72,7 @@ async function getCurrentVersion() {
         fs.writeFileSync(pkg, next, "utf8");
       });
       execSync(
-        `git add . && git commit -m ${JSON.stringify(
-          bump
-        )} && git tag ${JSON.stringify(bump)}`
+        `git add . && git commit -m ${JSON.stringify(bump)} && git tag ${bump}`
       );
     });
 })();
